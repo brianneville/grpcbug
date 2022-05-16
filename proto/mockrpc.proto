@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package grpcbug;
+
+option go_package = "./proto";
+
+service MockRPC {
+  rpc Get(GetRequest)returns (GetResponse);
+}
+
+message GetRequest{}
+
+message GetResponse{
+  bytes b = 1;
+}
+
