@@ -14,11 +14,11 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 )
 
-// empirically determined to be enough overhead to avoid the EOF error
-const windowOverhead = 9
-
 // workaroundCfg returns server options that seem to fix the issue
 func workaroundCfg() []grpc.DialOption {
+	// empirically determined to be enough overhead to avoid the EOF error
+	const windowOverhead = 9
+
 	// default window size is 65535 from
 	// google.golang.org/grpc/internal/transport/defaults.go
 	// Exceeding this will disable dynamic window and bdp for the transport

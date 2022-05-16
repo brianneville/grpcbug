@@ -2,9 +2,9 @@ This repo reproduces a bug in gRPC
 
 This bug is reproduced for the following setup:
  - a laptop running MacOS, sw_ver is:
-  ProductName:	macOS
-  ProductVersion:	11.6
-  BuildVersion:	20G165
+  ProductName: macOS
+  ProductVersion: 11.6
+  BuildVersion: 20G165
 
  - a remote peer running Centos 7, where this server is on a high ping
    (~150ms should be enough)
