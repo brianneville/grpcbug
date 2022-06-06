@@ -1,0 +1,72 @@
+% go run client/main.go -addr IP_REMOTE -work=true
+
+2022/06/06 15:42:45 INFO: [core] [Channel #1] Channel created
+2022/06/06 15:42:45 INFO: [core] [Channel #1] original dial target is: "IP_REMOTE:5050"
+2022/06/06 15:42:45 INFO: [core] [Channel #1] parsed dial target is: {Scheme:IP_REMOTE Authority: Endpoint:5050 URL:{Scheme:IP_REMOTE Opaque:5050 User: Host: Path: RawPath: ForceQuery:false RawQuery: Fragment: RawFragment:}}
+2022/06/06 15:42:45 INFO: [core] [Channel #1] fallback to scheme "passthrough"
+2022/06/06 15:42:45 INFO: [core] [Channel #1] parsed dial target is: {Scheme:passthrough Authority: Endpoint:IP_REMOTE:5050 URL:{Scheme:passthrough Opaque: User: Host: Path:/IP_REMOTE:5050 RawPath: ForceQuery:false RawQuery: Fragment: RawFragment:}}
+2022/06/06 15:42:45 INFO: [core] [Channel #1] Channel authority set to "IP_REMOTE:5050"
+2022/06/06 15:42:45 INFO: [core] [Channel #1] Resolver state updated: {
+  "Addresses": [
+    {
+      "Addr": "IP_REMOTE:5050",
+      "ServerName": "",
+      "Attributes": null,
+      "BalancerAttributes": null,
+      "Type": 0,
+      "Metadata": null
+    }
+  ],
+  "ServiceConfig": null,
+  "Attributes": null
+} (resolver returned new addresses)
+2022/06/06 15:42:45 INFO: [core] [Channel #1] Channel switches to new LB policy "pick_first"
+2022/06/06 15:42:45 INFO: [core] [Channel #1 SubChannel #2] Subchannel created
+2022/06/06 15:42:45 INFO: [core] [Channel #1 SubChannel #2] Subchannel Connectivity change to CONNECTING
+2022/06/06 15:42:45 INFO: [core] [Channel #1 SubChannel #2] Subchannel picks a new address "IP_REMOTE:5050" to connect
+2022/06/06 15:42:45 INFO: [core] pickfirstBalancer: UpdateSubConnState: 0xc0001da370, {CONNECTING <nil>}
+2022/06/06 15:42:45 INFO: [core] [Channel #1] Channel Connectivity change to CONNECTING
+2022/06/06 15:42:45 INFO: [core] blockingPicker: the picked transport is not ready, loop back to repick
+2022/06/06 15:42:45 http2: Framer 0xc000228000: wrote SETTINGS len=6, settings: INITIAL_WINDOW_SIZE=275084
+2022/06/06 15:42:45 http2: Framer 0xc000228000: wrote WINDOW_UPDATE len=4 (conn) incr=209549
+2022/06/06 15:42:45 http2: Framer 0xc000228000: read SETTINGS len=24, settings: HEADER_TABLE_SIZE=4096, MAX_CONCURRENT_STREAMS=100, MAX_FRAME_SIZE=16384, MAX_HEADER_LIST_SIZE=65535
+2022/06/06 15:42:45 http2: Framer 0xc000228000: read WINDOW_UPDATE len=4 (conn) incr=2147418112
+2022/06/06 15:42:45 INFO: [core] [Channel #1 SubChannel #2] Subchannel Connectivity change to READY
+2022/06/06 15:42:45 INFO: [core] pickfirstBalancer: UpdateSubConnState: 0xc0001da370, {READY <nil>}
+2022/06/06 15:42:45 INFO: [core] [Channel #1] Channel Connectivity change to READY
+2022/06/06 15:42:45 http2: Framer 0xc000228000: wrote SETTINGS flags=ACK len=0
+2022/06/06 15:42:45 http2: Framer 0xc000228000: wrote HEADERS flags=END_HEADERS stream=1 len=65
+2022/06/06 15:42:45 http2: Framer 0xc000228000: wrote DATA flags=END_STREAM stream=1 len=5 data="\x00\x00\x00\x00\x00"
+2022/06/06 15:42:45 http2: Framer 0xc000228000: read SETTINGS flags=ACK len=0
+2022/06/06 15:42:45 http2: Framer 0xc000228000: read PING len=8 ping="\x02\x04\x10\x10\t\x0e\a\a"
+2022/06/06 15:42:45 http2: Framer 0xc000228000: read HEADERS flags=END_HEADERS stream=1 len=32
+2022/06/06 15:42:45 http2: Framer 0xc000228000: wrote PING flags=ACK len=8 ping="\x02\x04\x10\x10\t\x0e\a\a"
+2022/06/06 15:42:45 http2: decoded hpack field header field ":status" = "200"
+2022/06/06 15:42:45 http2: decoded hpack field header field "content-type" = "application/grpc" (sensitive)
+2022/06/06 15:42:45 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data="\x00\x00\x042\x87\n\x83\xe5\x10................................................................................\n................................................................................\n................................................................................\n...." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data="...................................................................\n................................................................................\n................................................................................\n.........................." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data=".............................................\n................................................................................\n................................................................................\n................................................" (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data=".......................\n................................................................................\n................................................................................\n......................................................................" (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data=".\n................................................................................\n................................................................................\n................................................................................\n..........." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: wrote WINDOW_UPDATE len=4 (conn) incr=81920
+2022/06/06 15:42:46 http2: Framer 0xc000228000: wrote WINDOW_UPDATE stream=1 len=4 incr=81920
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data="............................................................\n................................................................................\n................................................................................\n................................." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data="......................................\n................................................................................\n................................................................................\n......................................................." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data="................\n................................................................................\n................................................................................\n............................................................................." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data="...........................................................................\n................................................................................\n................................................................................\n.................." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data=".....................................................\n................................................................................\n................................................................................\n........................................" (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: wrote WINDOW_UPDATE len=4 (conn) incr=81920
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data="...............................\n................................................................................\n................................................................................\n.............................................................." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: wrote WINDOW_UPDATE stream=1 len=4 incr=81920
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data=".........\n................................................................................\n................................................................................\n................................................................................\n..." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data="....................................................................\n................................................................................\n................................................................................\n........................." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data="..............................................\n................................................................................\n................................................................................\n..............................................." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data="........................\n................................................................................\n................................................................................\n....................................................................." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: wrote WINDOW_UPDATE len=4 (conn) incr=81920
+2022/06/06 15:42:46 http2: Framer 0xc000228000: wrote WINDOW_UPDATE stream=1 len=4 incr=81920
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=16384 data="..\n................................................................................\n................................................................................\n................................................................................\n.........." (16128 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read DATA stream=1 len=12940 data=".............................................................\n................................................................................\n................................................................................\n................................" (12684 bytes omitted)
+2022/06/06 15:42:46 http2: Framer 0xc000228000: read HEADERS flags=END_STREAM|END_HEADERS stream=1 len=30
+2022/06/06 15:42:46 http2: decoded hpack field header field "grpc-status" = "0" (sensitive)
+2022/06/06 15:42:46 http2: decoded hpack field header field "grpc-message" = "" (sensitive)
+recieved response, length=275075
