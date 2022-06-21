@@ -14,21 +14,6 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 )
 
-// workaroundCfg returns server options that seem to fix the issue
-func workaroundCfg() []grpc.DialOption {
-	// empirically determined to be enough overhead to avoid the EOF error
-	const windowOverhead = 9
-
-	// default window size is 65535 from
-	// google.golang.org/grpc/internal/transport/defaults.go
-	// Exceeding this will disable dynamic window and bdp for the transport
-	largerWindowSize := int32(len(defaults.BigResponse)) + windowOverhead
-	return []grpc.DialOption{
-		grpc.WithInitialWindowSize(largerWindowSize),
-		grpc.WithInitialConnWindowSize(largerWindowSize),
-	}
-}
-
 func main() {
 	var addr string
 	flag.StringVar(&addr, "addr", "", "address of server")
@@ -47,7 +32,7 @@ func main() {
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
 	}
 	if useWorkaround {
-		cfg = append(workaroundCfg(), cfg...)
+		cfg = append(defaults.WorkaroundCfg(), cfg...)
 	}
 
 	cc, err := grpc.DialContext(ctx, addr+":"+defaults.DefaultPort,
